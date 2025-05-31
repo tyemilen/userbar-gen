@@ -1,0 +1,31 @@
+.editor-container {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.section-content {
+	display: flex;
+	flex-direction: column;
+	gap: .5em;
+}
+
+.editor-section {
+	display: flex;
+	flex-direction: column;
+	gap: .5em;
+}
+
+.editor-section h3 {
+	display: flex;
+	justify-content: space-between;
+}
+
+.editor-field {
+	display: flex;
+	justify-content: space-between;
+}
+
+.editor-container {
+	min-width: 350px;
+}

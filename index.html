@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>userbar generator</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/editor.css">
+</head>
+
+<body>
+	<main>
+		<div id="editor-container-left"></div>
+		<div id="userbar-container">
+			<canvas id="userbar"></canvas>
+			<button id="save">SAVE</button>
+		</div>
+		<div id="editor-container-right"></div>
+	</main>
+	<script src="js/userbar.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/editor.js"></script>
+	<script>
+		document.getElementById('save').onclick = () => window.userbarSave();
+
+		createEditor('editor-container-left', 'editor-container-right', options, (newOptions) => {
+			updateOptions(newOptions);
+		});
+	</script>
+</body>
+
+</html>

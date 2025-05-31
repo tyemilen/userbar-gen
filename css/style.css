@@ -1,0 +1,68 @@
+.font-visitor {
+	font-family: 'Visitor';
+}
+
+body, html {
+	width: 100vw;
+	height: 100vh;
+	cursor: url('https://cur.cursors-4u.net/cursors/cur-4/cur330.cur'), auto;
+}
+body {
+	font-family: "MS UI Gothic";
+	margin: 0;
+	display: flex;
+	align-items: baseline;
+	gap: 5em;
+	overflow: hidden;
+	justify-content: center;
+	overflow-x: hidden;
+	color: white;
+	background-image: url(/assets/images/bg.gif);
+}
+
+main {
+	display: flex;
+	gap: 2em;
+	padding-top: 2em;
+	padding-left: 4em;
+	padding-right: 4em;
+
+	height: 100%;
+	overflow-y: auto;
+	background: rgba(0, 0, 0, .5);
+}
+
+button {
+	padding: .5em;
+	background: none;
+	color: white;
+}
+
+input {
+	padding: .5em;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+}
+
+div#main {
+	margin: 0 auto;
+	width: 50vw;
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: 2em;
+}
+div#userbar-container {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+input {
+	background: none;
+	color: white;
+}
