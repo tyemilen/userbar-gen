@@ -129,7 +129,7 @@ async function createUserbar(selector, options) {
 
 		downloadLink.href = imageDataURL;
 
-		downloadLink.download = `ub-${options.text.value.trim().replace(/\s+/, '_')}.png`;
+		downloadLink.download = `ub-${options.text.value.trim().replace(/\s+/g, '_')}.png`;
 
 		document.body.appendChild(downloadLink);
 		downloadLink.click();
