@@ -79,6 +79,11 @@ function createEditor(leftContainerId, rightContainerId, optionsObj, onChangeCal
 				}) : '');
 			};
 			if (value) div.append(createEl('span', [], ` (Current: ${value.startsWith('data:') ? 'Data URL' : value.split('/').pop()})`));
+		} else if (type === 'range') {
+			inputEl.value = value;
+			inputEl.oninput = (e) => {
+				updateOption(path, parseFloat(e.target.value))
+			};
 		} else {
 			inputEl.value = value;
 			if (type === 'checkbox') inputEl.checked = value;
@@ -204,7 +209,7 @@ function createEditor(leftContainerId, rightContainerId, optionsObj, onChangeCal
 			diagStripesV2SectionContent.appendChild(createInput('Spacing', 'number', optionsObj.diagStripesV2.spacing, 'diagStripesV2.spacing'));
 		}
 
-		const textSectionContent = createSection('✩ Text', rightContainer);
+		const textSectionContent = createSection('✩ Text', leftContainer);
 		textSectionContent.appendChild(createInput('Value', 'text', optionsObj.text.value, 'text.value'));
 		textSectionContent.appendChild(createInput('Size', 'number', optionsObj.text.size, 'text.size'));
 		textSectionContent.appendChild(createInput('Color', 'color', optionsObj.text.color, 'text.color'));
@@ -234,12 +239,17 @@ function createEditor(leftContainerId, rightContainerId, optionsObj, onChangeCal
 			backgroundImageSectionContent.appendChild(createInput('Y Position', 'number', optionsObj.backgroundImage.y, 'backgroundImage.y'));
 		}
 
-		// const logoSectionContent = createSection('Logo', rightContainer, 'logo', { src: '', x: 0, angle: 0 });
-		// if (optionsObj.logo) {
-		// 	logoSectionContent.appendChild(createInput('', 'file', optionsObj.logo.src || '', 'logo.src', { accept: 'image/*' }));
-		// 	logoSectionContent.appendChild(createInput('X Position', 'number', optionsObj.logo.x, 'logo.x'));
-		// 	logoSectionContent.appendChild(createInput('Angle', 'number', optionsObj.logo.angle, 'logo.angle', { step: 0.1 }));
-		// }
+		const iconSectionContent = createSection('Icon', rightContainer, 'icon', { src: '', x: 10, y: 0, width: 20, height: 20, angle: 0.0 });
+		if (optionsObj.icon) {
+			iconSectionContent.appendChild(createInput('', 'file', optionsObj.icon.src || '', 'icon.src', { accept: 'image/*' }));
+			iconSectionContent.appendChild(createInput('Width', 'number', optionsObj.icon.width, 'icon.width'));
+			iconSectionContent.appendChild(createInput('Height', 'number', optionsObj.icon.height, 'icon.height'));
+
+			iconSectionContent.appendChild(createInput('X Position', 'number', optionsObj.icon.x, 'icon.x'));
+			iconSectionContent.appendChild(createInput('Y Position', 'number', optionsObj.icon.y, 'icon.y'));
+
+			iconSectionContent.appendChild(createInput('Angle', 'range', optionsObj.icon.angle, 'icon.angle', { min: -360, max: 360 }));
+		}
 	}
 
 	render();

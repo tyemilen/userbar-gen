@@ -37,10 +37,13 @@ let options = {
 		x: 0,
 		y: -220
 	}, // can be null
-	logo: {
-		// src: 'assets/images/cat.jpg',
+	icon: {
+		// src: '',
 		x: 10,
-		angle: 20.0
+		y: 0,
+		width: 20,
+		height: 20,
+		angle: 0.0
 	} // can be null
 };
 

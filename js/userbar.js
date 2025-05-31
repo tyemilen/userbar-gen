@@ -96,9 +96,18 @@ async function createUserbar(selector, options) {
 		const image = await loadImage(options.backgroundImage.src);
 		ctx.drawImage(image, options.backgroundImage.x, options.backgroundImage.y, options.backgroundImage.width || image.width, options.backgroundImage.height || image.height);
 	}
-	if (options.logo && options.logo.src) {
-		const image = await loadImage(options.logo.src);
-		ctx.drawImage(image, options.logo.x, 0, canvas.width / 1.5, 56);
+	if (options.icon && options.icon.src) {
+		const image = await loadImage(options.icon.src);
+
+		ctx.save();
+		const centerX = options.icon.x + options.icon.width / 2;
+		const centerY = options.icon.y + options.icon.height / 2;
+
+		ctx.translate(centerX, centerY);
+		ctx.rotate((options.icon.angle * Math.PI) / 180);
+
+		ctx.drawImage(image, -options.icon.width / 2, -options.icon.height / 2, options.icon.width, options.icon.height);
+		ctx.restore();
 	}
 
 	ctx.beginPath();
@@ -120,7 +129,7 @@ async function createUserbar(selector, options) {
 
 		downloadLink.href = imageDataURL;
 
-		downloadLink.download = 'userbar.png';
+		downloadLink.download = `ub-${options.text.value.trim().replace(/\s+/, '_')}.png`;
 
 		document.body.appendChild(downloadLink);
 		downloadLink.click();
