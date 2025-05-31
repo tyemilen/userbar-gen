@@ -2,11 +2,13 @@
 	font-family: 'Visitor';
 }
 
-body, html {
+body,
+html {
 	width: 100vw;
 	height: 100vh;
 	cursor: url('https://cur.cursors-4u.net/cursors/cur-4/cur330.cur'), auto;
 }
+
 body {
 	font-family: "MS UI Gothic";
 	margin: 0;
@@ -42,7 +44,9 @@ input {
 	padding: .5em;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
 	margin: 0;
 	padding: 0;
 }
@@ -56,6 +60,7 @@ div#main {
 	align-items: start;
 	gap: 2em;
 }
+
 div#userbar-container {
 	display: flex;
 	flex-direction: column;
@@ -65,4 +70,55 @@ div#userbar-container {
 input {
 	background: none;
 	color: white;
+}
+
+@media (max-width: 768px) {
+	body {
+		gap: 2em;
+		flex-direction: column;
+		align-items: center;
+		overflow-y: auto;
+		padding-top: 1em;
+	}
+
+	main {
+		flex-direction: column;
+		padding: 0em;
+		gap: 1em;
+		height: auto;
+		min-height: 100vh;
+	}
+
+	div#editor-container-left,
+	div#editor-container-right {
+		width: 100%;
+		margin-bottom: 1em;
+	}
+
+	div#userbar-container {
+		width: 100%;
+		margin-top: 1em;
+	}
+
+	canvas#userbar {
+		width: 100%;
+	}
+
+	body,
+	html {
+		cursor: auto;
+	}
+}
+
+@media (max-width: 480px) {
+
+	main {
+		padding: 0.5em;
+		gap: 0.5em;
+	}
+
+	button,
+	input {
+		font-size: 0.9em;
+	}
 }
